@@ -1,11 +1,10 @@
 import js from "@eslint/js";
-import globals from "globals";
+import prettierRecommended from "eslint-plugin-prettier/recommended";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
-import eslintConfigPrettier from "eslint-config-prettier";
-import prettierRecommended from "eslint-plugin-prettier/recommended";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   { ignores: ["dist", "pnpm-lock.yaml"] },
@@ -13,10 +12,9 @@ export default tseslint.config(
     extends: [
       js.configs.recommended,
       prettierRecommended,
-      eslintConfigPrettier,
       ...tseslint.configs.recommended,
     ],
-    files: ["**/*.{ts,tsx}"],
+    files: ["**/*.{js,ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
